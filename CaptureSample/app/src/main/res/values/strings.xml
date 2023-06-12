@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CaptureSample</string>
+
+    <string name="btn_launch_capture">Launch Capture</string>
+
+    <string name="result_document_group">Document group: %1$s</string>
+    <string name="result_first_side">First side: %1$s</string>
+    <string name="result_first_side_original_image">First side original image</string>
+    <string name="result_first_side_trasnformed_image">First side transformed image</string>
+    <string name="result_second_side">Second side: %1$s</string>
+    <string name="result_second_side_original_image">Second side original image</string>
+    <string name="result_second_side_trasnformed_image">Second side transformed image</string>
+    <string name="result_trasnformed_image_dpi">Transformed image DPI: %1$s</string>
+</resources>
