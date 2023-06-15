@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>OnboardingStrings</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>capture</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":capture:dokkaHtml/release">androidJvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="capture::com.microblink.capture.overlay.resources/OnboardingStrings///PointingToDeclaration//-734444506">
+  <div class="breadcrumbs"><a href="../../../index.html">capture</a><span class="delimiter">/</span><a href="../index.html">com.microblink.capture.overlay.resources</a><span class="delimiter">/</span><span class="current">OnboardingStrings</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Onboarding</span><wbr></wbr><span><span>Strings</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">OnboardingStrings</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingSkipButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_skip<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingBackButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_back<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingNextButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_next<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingDoneButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_done<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingTitles<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator"> = </span>intArrayOf(
+                R.string.mb_capture_onboarding_title1,
+                R.string.mb_capture_onboarding_title2,
+                R.string.mb_capture_onboarding_title3
+        )<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>onboardingMessages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator"> = </span>intArrayOf(
+                R.string.mb_capture_onboarding_msg1,
+                R.string.mb_capture_onboarding_msg2,
+                R.string.mb_capture_onboarding_msg3
+        )<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>introductionDialogTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_introduction_dialog_title<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>introductionDialogMessage<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_introduction_dialog_message<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span><span class="token keyword">val </span>introductionDoneButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_done</span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/android/os/Parcelable.html">Parcelable</a></div><p class="paragraph">String customisations for onboarding screens and introduction dialog.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="95922333%2FConstructors%2F-734444506" anchor-label="OnboardingStrings" id="95922333%2FConstructors%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-onboarding-strings.html"><span>Onboarding</span><wbr></wbr><span><span>Strings</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="95922333%2FConstructors%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingSkipButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_skip<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingBackButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_back<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingNextButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_next<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingDoneButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_done<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingTitles<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator"> = </span>intArrayOf(
+                R.string.mb_capture_onboarding_title1,
+                R.string.mb_capture_onboarding_title2,
+                R.string.mb_capture_onboarding_title3
+        )<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>onboardingMessages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator"> = </span>intArrayOf(
+                R.string.mb_capture_onboarding_msg1,
+                R.string.mb_capture_onboarding_msg2,
+                R.string.mb_capture_onboarding_msg3
+        )<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>introductionDialogTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_introduction_dialog_title<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>introductionDialogMessage<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_introduction_dialog_message<span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/StringRes.html"><span class="token annotation builtin">StringRes</span></a> </span>introductionDoneButtonText<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>R.string.mb_capture_btn_done</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="409576217%2FProperties%2F-734444506" anchor-label="introductionDialogMessage" id="409576217%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="introduction-dialog-message.html"><span>introduction</span><wbr></wbr><span>Dialog</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="409576217%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="introduction-dialog-message.html">introductionDialogMessage</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Message displayed on the introduction dialog.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="625250984%2FProperties%2F-734444506" anchor-label="introductionDialogTitle" id="625250984%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="introduction-dialog-title.html"><span>introduction</span><wbr></wbr><span>Dialog</span><wbr></wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="625250984%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="introduction-dialog-title.html">introductionDialogTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Title displayed on the introduction dialog.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-950036095%2FProperties%2F-734444506" anchor-label="introductionDoneButtonText" id="-950036095%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="introduction-done-button-text.html"><span>introduction</span><wbr></wbr><span>Done</span><wbr></wbr><span>Button</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-950036095%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="introduction-done-button-text.html">introductionDoneButtonText</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Text displayed on introduction dialog close (done) button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1814351003%2FProperties%2F-734444506" anchor-label="onboardingBackButtonText" id="1814351003%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-back-button-text.html"><span>onboarding</span><wbr></wbr><span>Back</span><wbr></wbr><span>Button</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1814351003%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-back-button-text.html">onboardingBackButtonText</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Text displayed on onboarding back button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1868959776%2FProperties%2F-734444506" anchor-label="onboardingDoneButtonText" id="1868959776%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-done-button-text.html"><span>onboarding</span><wbr></wbr><span>Done</span><wbr></wbr><span>Button</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1868959776%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-done-button-text.html">onboardingDoneButtonText</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Text displayed on onboarding done button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1189301461%2FProperties%2F-734444506" anchor-label="onboardingMessages" id="1189301461%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-messages.html"><span>onboarding</span><wbr></wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1189301461%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-messages.html">onboardingMessages</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a></div><div class="brief "><p class="paragraph">Main messages displayed on onboarding pages (each message on its own page).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="276310799%2FProperties%2F-734444506" anchor-label="onboardingNextButtonText" id="276310799%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-next-button-text.html"><span>onboarding</span><wbr></wbr><span>Next</span><wbr></wbr><span>Button</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="276310799%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-next-button-text.html">onboardingNextButtonText</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Text displayed on onboarding next button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1301964035%2FProperties%2F-734444506" anchor-label="onboardingSkipButtonText" id="1301964035%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-skip-button-text.html"><span>onboarding</span><wbr></wbr><span>Skip</span><wbr></wbr><span>Button</span><wbr></wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1301964035%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-skip-button-text.html">onboardingSkipButtonText</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Text displayed on onboarding skip button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="667296998%2FProperties%2F-734444506" anchor-label="onboardingTitles" id="667296998%2FProperties%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="onboarding-titles.html"><span>onboarding</span><wbr></wbr><span><span>Titles</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="667296998%2FProperties%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="onboarding-titles.html">onboardingTitles</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a></div><div class="brief "><p class="paragraph">Titles displayed on onboarding pages (each title on its own page).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1578325224%2FFunctions%2F-734444506" anchor-label="describeContents" id="-1578325224%2FFunctions%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1578325224%2FFunctions%2F-734444506"><span>describe</span><wbr></wbr><span><span>Contents</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1578325224%2FFunctions%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1578325224%2FFunctions%2F-734444506"><span class="token function">describeContents</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1429891899%2FFunctions%2F-734444506" anchor-label="equals" id="-1429891899%2FFunctions%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="equals.html"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1429891899%2FFunctions%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="equals.html"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-562023807%2FFunctions%2F-734444506" anchor-label="hashCode" id="-562023807%2FFunctions%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hash-code.html"><span>hash</span><wbr></wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-562023807%2FFunctions%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="hash-code.html"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1754457655%2FFunctions%2F-734444506" anchor-label="writeToParcel" id="-1754457655%2FFunctions%2F-734444506" data-filterable-set=":capture:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":capture:dokkaHtml/release" data-filterable-set=":capture:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1754457655%2FFunctions%2F-734444506"><span>write</span><wbr></wbr><span>To</span><wbr></wbr><span><span>Parcel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1754457655%2FFunctions%2F-734444506"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1754457655%2FFunctions%2F-734444506"><span class="token function">writeToParcel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Parcel.html">Parcel</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
