@@ -61,7 +61,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.6.0")
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
 
-    implementation(files("../../libs/capture-1.0.0.aar"))
+    implementation(files("../../libs/capture-1.0.1.aar"))
     // additional capture lib dependencies
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.databinding:viewbinding:8.0.2")
