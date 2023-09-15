@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.microblink.capture.sample"
-    compileSdk =  34
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.microblink.capture.sample"
@@ -13,16 +13,15 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
-        ndk {
-            abiFilters += listOf("armeabi-v7a", "arm64-v8a")
-        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -46,17 +45,23 @@ android {
     }
 }
 
+val cameraxVersion = rootProject.extra["camerax_version"] as String
+
 dependencies {
     implementation("androidx.core:core-ktx:${rootProject.extra["core_ktx_version"]}")
     implementation("androidx.appcompat:appcompat:${rootProject.extra["appcompat_version"]}")
-    implementation("com.google.android.material:material:${rootProject.extra["material_version"]}")
     implementation(platform("androidx.compose:compose-bom:${rootProject.extra["compose_bom_version"]}"))
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:${rootProject.extra["navigation_compose_version"]}")
 
-    // capture SDK dependency, here we are using default capture UX
-    implementation("com.microblink:capture-ux:${rootProject.extra["capture_version"]}")
+    implementation("androidx.camera:camera-core:$cameraxVersion")
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    implementation("androidx.camera:camera-view:$cameraxVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+
+    // capture SDK dependency, here we need only capture-core, because we will build our own UI
+    implementation("com.microblink:capture-core:${rootProject.extra["capture_version"]}")
     implementation(project(":lib-common"))
 }

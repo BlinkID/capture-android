@@ -9,7 +9,7 @@
  * REVERSE ENGINEER, DECOMPILE, OR DISASSEMBLE IT.
  */
 
-package com.microblink.capture.sample
+package com.microblink.capture.sample.common
 
 import android.app.Application
 import com.microblink.capture.CaptureSDK

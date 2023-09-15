@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DirectApi</string>
+
+    <string name="btn_launch_camera">Camera</string>
+    <string name="btn_launch_static_images">Static images</string>
+
+    <string name="capture_status_empty" translatable="false"></string>
+    <string name="capture_status_sensing_front">Scan the front side of a document</string>
+    <string name="capture_status_sensing_back">Scan the back side of a document</string>
+    <string name="capture_status_processing">Processing...</string>
+    <string name="capture_status_flip_document">Flip the document</string>
+    <string name="capture_status_rotate_document">Rotate card or turn phone to landscape</string>
+    <string name="capture_status_move_farther">Move farther</string>
+    <string name="capture_status_move_closer">Move closer</string>
+    <string name="capture_status_keep_fully_visible">Keep document fully visible</string>
+    <string name="capture_status_align_document">Keep document parallel to phone</string>
+    <string name="capture_status_increase_lighting_intensity">Move to brighter spot</string>
+    <string name="capture_status_decrease_lighting_intensity">Move to spot with less lighting</string>
+    <string name="capture_status_eliminate_glare">Tilt or move document to remove reflection</string>
+    <string name="capture_status_eliminate_blur">Keep document and phone still</string>
+</resources>

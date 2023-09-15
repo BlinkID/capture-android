@@ -19,10 +19,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.microblink.capture.overlay.resources.CaptureOverlayStrings
-import com.microblink.capture.result.AnalyserResult
+import com.microblink.capture.result.AnalyzerResult
 import com.microblink.capture.result.CaptureResult
 import com.microblink.capture.result.contract.MbCapture
-import com.microblink.capture.sample.result.*
+import com.microblink.capture.sample.common.result.ResultData
+import com.microblink.capture.sample.common.result.ResultScreen
+import com.microblink.capture.sample.common.result.ResultsHolder
+import com.microblink.capture.sample.common.result.SideData
+import com.microblink.capture.sample.common.result.correctRotation
+import com.microblink.capture.sample.common.result.toResultData
 import com.microblink.capture.sample.ui.theme.CaptureSampleTheme
 import com.microblink.capture.settings.*
 
@@ -51,31 +56,11 @@ fun MainNavHost(
     ) {
         composable(ctx.getString(R.string.nav_route_main)) {
             MainScreen(
-                onAnalyserResultAvailable = { analyserResult: AnalyserResult ->
+                onAnalyserResultAvailable = { analyserResult: AnalyzerResult ->
                     // We are using ResultHolder singleton for the simplicity of this sample.
                     // It is not the best way to pass the data to the result screen.
                     ResultsHolder.clear()
-                    ResultsHolder.resultData = ResultData(
-                        documentGroup = analyserResult.documentGroup.name,
-                        firstSide = analyserResult.firstCapture?.let { it ->
-                            val originalImageResult = it.imageResult
-                            SideData(
-                                side = it.side.name,
-                                originalImage = originalImageResult.image.convertToBitmap()
-                                    ?.correctRotation(originalImageResult.imageRotation),
-                                transformedImage = it.transformedImageResult?.image?.convertToBitmap()
-                            )
-                        },
-                        secondSide = analyserResult.secondCapture?.let { it ->
-                            val originalImageResult = it.imageResult
-                            SideData(
-                                side = it.side.name,
-                                originalImage = originalImageResult.image.convertToBitmap()
-                                    ?.correctRotation(originalImageResult.imageRotation),
-                                transformedImage = it.transformedImageResult?.image?.convertToBitmap()
-                            )
-                        }
-                    )
+                    ResultsHolder.resultData = analyserResult.toResultData()
                     navController.navigate(ctx.getString(R.string.nav_route_results))
                 }
             )
@@ -89,12 +74,12 @@ fun MainNavHost(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun MainScreen(
-    onAnalyserResultAvailable: (AnalyserResult) -> Unit
+    onAnalyserResultAvailable: (AnalyzerResult) -> Unit
 ) {
     val captureLauncher = rememberLauncherForActivityResult(contract = MbCapture(), onResult = { captureResult ->
         if (captureResult.status == CaptureResult.Status.DOCUMENT_CAPTURED) {
             // do something with the result if document has been successfully captured
-            captureResult.analyserResult?.let(onAnalyserResultAvailable)
+            captureResult.analyzerResult?.let(onAnalyserResultAvailable)
         }
     })
     Scaffold(
@@ -124,7 +109,7 @@ private fun MainScreen(
                         onClick = {
                             // instantiate capture settings and customize them to your needs
                             val captureSettings = CaptureSettings(
-                                analyserSettings = AnalyserSettings(
+                                analyzerSettings = AnalyzerSettings(
                                     // there are other options available
                                     captureStrategy = CaptureStrategy.Default // this is default
                                 ),

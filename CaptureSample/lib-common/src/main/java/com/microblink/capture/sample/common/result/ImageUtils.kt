@@ -9,7 +9,7 @@
  * REVERSE ENGINEER, DECOMPILE, OR DISASSEMBLE IT.
  */
 
-package com.microblink.capture.sample.result
+package com.microblink.capture.sample.common.result
 
 import android.graphics.Bitmap
 import android.graphics.Matrix
