@@ -1,5 +1,11 @@
 # Release notes
 
+## v1.0.2
+
+### Bugfixes
+
+- Fixed camera crashes
+
 ## v1.0.1
 
 ### Bugfixes
