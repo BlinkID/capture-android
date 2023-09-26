@@ -51,7 +51,7 @@ The `Capture` library is available as an .aar file and it is located inside the 
 val camerax_version = "1.2.1"
 dependencies {
     // Capture SDK
-    implementation(files("libs/capture-1.0.1.aar"))
+    implementation(files("libs/capture-1.0.2.aar"))
 
     // additional Capture SDK dependencies
     implementation("androidx.core:core-ktx:1.10.1")
