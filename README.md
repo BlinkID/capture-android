@@ -11,7 +11,6 @@ User is guided to avoid glare, blurred images, bad lighting conditions, fingers 
 In the results, you can get a cropped, perspective-corrected image of the document, along with the original frame. Those can be processed by your app in any way required. The SDK is lightweight and can be easily integrated into your mobile app and bland in your design.
 
 
-
 # Table of contents
 * [Quick Start](#quick-start)
     * [Quick start with the sample app](#quick-sample)
@@ -23,6 +22,8 @@ In the results, you can get a cropped, perspective-corrected image of the docume
 * [Customizing the look and UX](#customizing-the-look)
 * [Changing default strings and localization](#changing-strings-and-localization)
     * [Defining your own string resources for UI elements](#using-own-string-resources)
+* [Completely custom UX with Direct API (advanced)](#direct-api)
+    * [The `AnalyzerRunner`](#analyzer-runner)
 * [Troubleshooting](#troubleshoot)
 * [Additional info](#additional-info)
     * [Capture SDK size](#sdk-size)
@@ -32,36 +33,39 @@ In the results, you can get a cropped, perspective-corrected image of the docume
 
 # <a name="quick-start"></a> Quick Start
 
-## <a name="quick-sample"></a> Quick start with the sample app
+## <a name="quick-sample"></a> Quick start with the sample apps
 
 1. Open Android Studio.
 2. In Quick Start dialog choose _Open project_
 3. In File dialog select _CaptureSample_ folder.
 4. Wait for the project to load. If Android studio asks you to reload project on startup, select `Yes`.
 
-The _CaptureSample_ contains simple application (`app` module) that uses the `Capture` SDK to capture document images and displays the results.
+#### Included sample apps:
+
+- **_app_** demonstrates quick and straightforward integration of the Capture SDK by using the provided UX and limited [customization options](#customizing-the-look) to capture document images and display the results.
+
+- **_app-direct-api_** demonstrates custom integration using the [Direct API](#direct-api), where the integrator is responsible for preparing input image stream (or static images) for analysis and building completely custom UX from scratch, based on the image-by-image feedback from the SDK.
+
 
 ## <a name="sdk-integration"></a> SDK integration
 
-### Adding _Capture_ SDK dependencies
+### Adding _Capture_ SDK dependency
 
-The `Capture` library is available as an .aar file and it is located inside the `libs` folder of this repository. You can include it in your project by copying the file in your project/module and then referencing it like this in your `build.gradle.kts` file:
+The `Capture` library is available on Microblink maven repository.
+
+In your project root, add _Microblink_ maven repository to repositories list:
 
 ```
-val camerax_version = "1.2.1"
-dependencies {
-    // Capture SDK
-    implementation(files("libs/capture-1.0.2.aar"))
+repositories {
+    maven { url 'https://maven.microblink.com' }
+}
+```
 
-    // additional Capture SDK dependencies
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.activity:activity-ktx:1.7.2")
-    implementation("androidx.databinding:viewbinding:8.0.2")
-    implementation("androidx.camera:camera-core:$camerax_version")
-    implementation("androidx.camera:camera-camera2:$camerax_version")
-    implementation("androidx.camera:camera-view:$camerax_version")
-    implementation("androidx.camera:camera-lifecycle:$camerax_version")
+Add _Capture_ as a dependency in module level build.gradle(.kts):
+
+```
+dependencies {
+    implementation("com.microblink:capture-ux:1.1.0")
 }
 ```
 
@@ -82,20 +86,31 @@ dependencies {
    }
    ```
 
-2. In your activity, define and create `ActivityResultLauncher` object by using [`MbCapture`](https://blinkid.github.io/capture-android/capture/com.microblink.capture/-capture-s-d-k/index.html) contract and define the result callback.
+2. In your activity, define and create `ActivityResultLauncher` object by using [`MbCapture`](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture/-capture-s-d-k/index.html) contract and define the result callback.
   
    ```kotlin
    private val captureLauncher =
        registerForActivityResult(MbCapture()) { captureResult ->
            when (captureResult.status) {
                CaptureResult.Status.DOCUMENT_CAPTURED -> {
-                   // do something with the result, you can use analyserResult
-                   captureResult.analyserResult?.let { analyserResult ->
+                   // do something with the result, you can use analyzerResult
+                   captureResult.analyzerResult?.let { analyzerResult ->
                        // use result
                    }
                }
                CaptureResult.Status.CANCELLED -> {
-                   // capture has been cancelled by the user
+                   // Capture process has been canceled by the user, or because
+                   // of any other unexpected error.
+               }
+               CaptureResult.Status.ERROR_LICENCE_CHECK -> {
+                   // Capture process has been canceled because of the licence
+                   // check error. This happens if you use licence which has to
+                   // be online activated, and activation fails.
+               CaptureResult.Status.ERROR_ANALYZER_SETTINGS_UNSUITABLE -> {
+                   // Capture process has been canceled because of the AnalyzerSettings
+                   // validation error. This error means that the given analyzer settings
+                   // are not suitable for capturing the document from the input image
+                   // (image resolution is too small to fulfill all requirements from AnalyzerSettings).
                }
            }
         }
@@ -115,9 +130,9 @@ dependencies {
 
 ### Capture results
 
-After capture is finished, SDK returns object of tipe [CaptureResult](https://blinkid.github.io/capture-android/capture/com.microblink.capture.result/-capture-result/index.html). You first need to check the [CaptureResult.status](https://blinkid.github.io/capture-android/capture/com.microblink.capture.result/-capture-result/status.html). If the status is `DOCUMENT_CAPTURED`, [CaptureResult.analyserResult](https://blinkid.github.io/capture-android/capture/com.microblink.capture.result/-capture-result/analyser-result.html) will be available and you can use it.
+After capture is finished, SDK returns object of tipe [CaptureResult](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.result/-capture-result/index.html). You first need to check the [CaptureResult.status](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.result/-capture-result/status.html). If the status is `DOCUMENT_CAPTURED`, [CaptureResult.analyzerResult](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.result/-capture-result/analyzer-result.html) will be available and you can use it.
 
-You can check the API documentation to see which data fields are available in the  [AnalyserResult](https://blinkid.github.io/capture-android/capture/com.microblink.capture.result/-analyser-result/index.html).
+You can check the API documentation to see which data fields are available in the  [AnalyzerResult](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.result/-analyzer-result/index.html).
 
 
 # <a name="device-requirements"></a> Device requirements
@@ -165,7 +180,7 @@ android {
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/capture/capture_overlay_customisation_2.png" alt="Capture SDK">
 </p>
 
-To customise the scanning overlay, provide your custom style resource via [`CaptureSettings`](https://blinkid.github.io/capture-android/capture/com.microblink.capture.settings/-capture-settings/index.html) constructor by defining the `style` property. You can customise elements labeled on screenshots above by providing the following properties in your style:
+To customise the scanning overlay, provide your custom style resource via [`CaptureSettings`](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.settings/-capture-settings/index.html) constructor by defining the `style` property. You can customise elements labeled on screenshots above by providing the following properties in your style:
 
 **exit**
 
@@ -233,12 +248,19 @@ To customise the scanning overlay, provide your custom style resource via [`Capt
 * `mb_capture_helpTooltipColor` - background color of the help tooltip
 * `mb_capture_helpTooltipTextAppearance` - style that will be used as `android:textAppearance` for the help tooltip text
 
-You can control the visibility of the **introduction dialog** by using [UxSettings](https://blinkid.github.io/capture-android/capture/com.microblink.capture.settings/-ux-settings/index.html) property `showIntroductionDialog` and **onboarding screens** by using `showOnboardingInfo` when defining the [CaptureSettings](https://blinkid.github.io/capture-android/capture/com.microblink.capture.settings/-capture-settings/index.html).
+**alert dialog**
+
+* `mb_capture_alertDialogButtonTextAppearance` - style that will be used as `android:textAppearance` for the alert dialog button
+* `mb_capture_alertDialogTitleTextAppearance` - style that will be used as `android:textAppearance` for the alert dialog title
+* `mb_capture_alertDialogMessageTextAppearance` - style that will be used as `android:textAppearance` for the alert dialog message
+* `mb_capture_alertDialogBackgroundColor` - alert dialog background color
+
+You can control the visibility of the **introduction dialog** by using [UxSettings](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.settings/-ux-settings/index.html) property `showIntroductionDialog` and **onboarding screens** by using `showOnboardingInfo` when defining the [CaptureSettings](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.settings/-capture-settings/index.html).
 
 
 There is also an option for controlling the delay of the **"Show help?"** tooltip that is shown near the help button. The button and tooltip will be shown if the previous option for showing onboarding is `true`.
 
-To change the default delay length of the tooltip, use [UxSettings.showHelpTooltipTimeIntervalMs](https://blinkid.github.io/capture-android/capture/com.microblink.capture.settings/-ux-settings/show-help-tooltip-time-interval-ms.html). Time parameter is set in milliseconds.
+To change the default delay length of the tooltip, use [UxSettings.showHelpTooltipTimeIntervalMs](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.settings/-ux-settings/show-help-tooltip-time-interval-ms.html). Time parameter is set in milliseconds.
 The default setting of the delay is 12 seconds (12000 milliseconds).
 
 
@@ -250,7 +272,7 @@ You can modify strings and add your own language. For more information on how lo
 
 ## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
 
-For the capture screen, you can define your own string resources that will be used instead of predefined ones by using the custom [CaptureOverlayStrings](https://blinkid.github.io/capture-android/capture/com.microblink.capture.overlay.resources/-capture-overlay-strings/index.html) while creating the [CaptureSettings]((https://blinkid.github.io/capture-android/capture/com.microblink.capture.settings/-capture-settings/index.html)).
+For the capture screen, you can define your own string resources that will be used instead of predefined ones by using the custom [CaptureOverlayStrings](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.overlay.resources/-capture-overlay-strings/index.html) while creating the [CaptureSettings]((https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.settings/-capture-settings/index.html)).
 
 ```kotlin
 
@@ -281,6 +303,8 @@ val captureSettings = CaptureSettings(
             scanFrontSide = R.string.your_scan_front_side_instructions,
             scanBackSide = R.string.your_scan_back_side_instructions,
             flipDocument = R.string.your_flip_document_instructions,
+            rotateDocument = R.string.your_rotate_document_instructions,
+            rotateDocumentShort = R.string.your_rotate_document_short_instructions,
             moveFarther = R.string.your_move_farther_instructions,
             moveCloser = R.string.your_move_closer_instructions,
             keepDocumentVisible = R.string.your_keep_document_visible_instructions,
@@ -289,11 +313,102 @@ val captureSettings = CaptureSettings(
             decreaseLightingIntensity = R.string.your_decrease_lighting_instructions,
             eliminateBlur = R.string.your_eliminate_blur_instructions,
             eliminateGlare = R.string.your_eliminate_glare_instructions,
+        ),
+        alertStrings = AlertStrings(
+            errorDialogMessageScanningUnavailable = R.string.your_scanning_unavailable_message,
+            errorDialogMessageCheckInternet = R.string.your_check_internet_message,
+            errorDialogMessageNetworkCommunicationError = R.string.your_network_communication_error_message,
+            errorDialogButtonText = R.string.your_error_dialog_button_text
         )
     )
 )
 
 ```
+
+# <a name="direct-api"></a> Completely custom UX with Direct API (advanced)
+
+When using the **Direct API**, you are responsible for preparing input image stream (or static images) for analysis and building a completely custom UX from scratch based on the image-by-image feedback from the SDK. 
+
+Direct API gives you more flexibility with the cost of a significantly larger integration effort. For example, if you need a camera, you will be responsible for camera management and displaying real-time user guidance.
+
+### Adding _Capture_ SDK dependency for Direct API
+
+For Direct API, you need only Capture SDK core library: **capture-core**, capture-ux is not needed.
+
+In your project root, add _Microblink_ maven repository to the repositories list:
+
+```
+repositories {
+    maven { url 'https://maven.microblink.com' }
+}
+```
+
+Add _capture-core_ library as a dependency in module level build.gradle(.kts):
+
+```
+dependencies {
+    implementation("com.microblink:capture-core:1.1.0")
+}
+```
+
+## <a name="analyzer-runner"></a> The `AnalyzerRunner`
+
+For the Direct API integration, use the [AnalyzerRunner](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.directapi/-analyzer-runner/index.html).  It is a singleton object, meaning it is possible to capture a single document at a time.
+
+Like in the default UX, you can configure the `AnalyzerRunner` with desired [AnalyzerSettings](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.settings/-analyzer-settings/index.html). It is allowed to update settings at any time during analysis.
+
+```kotlin
+AnalyzerRunner.settings = AnalyzerSettings(
+    // set supported options
+)
+```
+
+When starting the analysis of the next document, be sure that Analyzer has been reset to the initial state:
+
+```kotlin
+AnalyzerRunner.reset()
+```
+
+During analysis and after analysis is done, the current result is available via [AnalyzerRunner.result](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.directapi/-analyzer-runner/result.html).
+
+After analysis is done, and you don't need the `AnalyzerRunner` anymore, be sure to terminate it to release the allocated memory for processing:
+
+```kotlin
+AnalyzerRunner.terminate()
+```
+
+After terminating, the `AnalyzerRunner` could be used later again. Just start feeding the frames for the next document.
+
+
+
+### <a name="direct-api-image-stream"></a> Analyzing the stream of images
+
+When you have a larger number of images coming from the stream, e.g. camera stream or pre-recorded
+video stream, use [AnalyzerRunner.analyzeStreamImage](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.directapi/-analyzer-runner/analyze-stream-image.html) method.
+
+It is expected that you will call this method multiple times to analyze the single document and all analyzed images are considered for building the final `AnalyzerRunner.result`.
+		
+For each frame, all relevant info for the current status of the analysis and the capture process
+is returned by [FrameAnalysisResultListener](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.directapi/-frame-analysis-result-listener/index.html) as [FrameAnalysisResult](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.analysis/-frame-analysis-result/index.html), which could be used to guide the user through the scanning process and give real-time feedback.
+
+When [FrameAnalysisResult.captureState](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.analysis/-frame-analysis-result/-capture-state/index.html) becomes `CaptureState.DocumentCaptured`, this means that the document has been successfully captured and you can use the `AnalyzerRunner.result` as a final capture result. To immediately reset the Analyzer to its initial state and avoid further result changes, you can use `AnalyzerRunner.detachResult()`.
+
+### <a name="direct-api-few-images"></a> Analyzing a few images (usually one or two)
+
+When you have a fixed number of images to analyze, e.g. one (or few) for the front side
+and another (or few) for the back side of the document, use [AnalyzerRunner.analyzeImage](https://blinkid.github.io/capture-android/capture-core/com.microblink.capture.directapi/-analyzer-runner/analyze-image.html), which is optimized for single image analysis.
+
+Make sure that you have set appropriate settings to enable capturing of the document side from the single image:
+
+```kotlin
+AnalyzerRunner.settings = AnalyzerSettings(
+    // here we have to use single frame strategy, because we have one frame per document side
+    captureStrategy = CaptureStrategy.SingleFrame
+)
+```
+
+
+
 
 # <a name="troubleshoot"></a> Troubleshooting
 
