@@ -1,0 +1,17 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:capture-core
+com.microblink.capture
+com.microblink.capture.analysis
+com.microblink.capture.directapi
+com.microblink.capture.image
+com.microblink.capture.licence.exception
+com.microblink.capture.result
+com.microblink.capture.settings
+module:capture-ux
+com.microblink.capture.overlay.debug
+com.microblink.capture.overlay.resources
+com.microblink.capture.result
+com.microblink.capture.result.contract
+com.microblink.capture.settings
