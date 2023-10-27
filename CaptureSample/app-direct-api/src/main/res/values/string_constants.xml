@@ -1,0 +1,4 @@
+<resources>
+    <string name="nav_route_main" translatable="false">main</string>
+    <string name="nav_route_results" translatable="false">results</string>
+</resources>
