@@ -169,7 +169,7 @@ android {
 ```
 
 
-# <a name="#customizing-the-look"></a> Customizing the look and the UX
+# <a name="customizing-the-look"></a> Customizing the look and the UX
 
 ### Scan overlay theming
 
@@ -264,7 +264,7 @@ To change the default delay length of the tooltip, use [UxSettings.showHelpToolt
 The default setting of the delay is 12 seconds (12000 milliseconds).
 
 
-# <a name="#changing-strings-and-localization"></a> Changing default strings and localization
+# <a name="changing-strings-and-localization"></a> Changing default strings and localization
 
 SDK is localized to English language.
 
