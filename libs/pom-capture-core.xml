@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>capture-core</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>aar</packaging>
     <name>Capture SDK for Android</name>
     <description>Everything you need to add AI-driven ID document capture into your native Android app.</description>
