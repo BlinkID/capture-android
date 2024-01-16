@@ -1,5 +1,9 @@
 #!/bin/bash
-version=1.2.0
 
-mvn install:install-file -Dfile="capture-core-$version.aar" -DpomFile=pom-capture-core.xml -DcreateChecksum=true
-mvn install:install-file -Dfile="capture-ux-$version.aar" -DpomFile=pom-capture-ux.xml -DcreateChecksum=true
+source config.sh
+
+for i in "${!SDK_NAMES[@]}"; do
+    sdkName=${SDK_NAMES[$i]}
+    sdkVersion=${SDK_VERSIONS[$i]}
+    mvn install:install-file -Dfile="$sdkName-$sdkVersion.aar" -DpomFile=pom-$sdkName.xml -DcreateChecksum=true
+done
