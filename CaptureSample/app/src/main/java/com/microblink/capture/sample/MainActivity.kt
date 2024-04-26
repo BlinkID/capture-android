@@ -8,7 +8,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,14 +29,14 @@ import com.microblink.capture.overlay.resources.CaptureOverlayStrings
 import com.microblink.capture.result.AnalyzerResult
 import com.microblink.capture.result.CaptureResult
 import com.microblink.capture.result.contract.MbCapture
-import com.microblink.capture.sample.common.result.ResultData
 import com.microblink.capture.sample.common.result.ResultScreen
 import com.microblink.capture.sample.common.result.ResultsHolder
-import com.microblink.capture.sample.common.result.SideData
-import com.microblink.capture.sample.common.result.correctRotation
 import com.microblink.capture.sample.common.result.toResultData
 import com.microblink.capture.sample.ui.theme.CaptureSampleTheme
-import com.microblink.capture.settings.*
+import com.microblink.capture.settings.AnalyzerSettings
+import com.microblink.capture.settings.CaptureSettings
+import com.microblink.capture.settings.CaptureStrategy
+import com.microblink.capture.settings.UxSettings
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

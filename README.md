@@ -266,7 +266,7 @@ The default setting of the delay is 12 seconds (12000 milliseconds).
 
 # <a name="changing-strings-and-localization"></a> Changing default strings and localization
 
-SDK is localized to English language.
+SDK has built-in support for several languages.
 
 You can modify strings and add your own language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
 

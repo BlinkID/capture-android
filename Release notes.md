@@ -1,5 +1,26 @@
 # Release notes
 
+## v1.3.0
+
+### Improvements
+
+- Added translations for the following languages: `Arabic`, `Chinese in China`, `Chinese in Taiwan`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portuguese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai` and `Vietnamese`.
+- Accessibility improvements in the UI
+
+### Minor API changes
+
+- Added option `AnalyzerSettings.keepDpiOnTransformedDocumentImage`:
+    - Determines whether to preserve the captured document DPI on transformed document image. If disabled, the document DPI is downscaled to 400 DPI.
+- Added option `AnalyzerSettings.enforcedDocumentGroup`:
+    - Enforces a specific document group, overriding the analyzer's document classification. This setting impacts the number of sides scanned to match the enforced group, and the way document image is transformed.
+
+### Other changes
+
+- Native code is now built using NDK r26c and uses dynamic c++ runtime (`libc++_shared.so`)
+    - In case when multiple different dependencies use the same runtime in the same app, the latest available version of the library should be packaged into the app.
+- Added `android.permission.INTERNET` permission to the manifest of `capture-core` library
+    - This permission is needed in order to correctly perform license key validation for licenses that require online validation.
+
 ## v1.2.0
 
 ### Minor API changes
