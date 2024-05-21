@@ -65,7 +65,7 @@ Add _Capture_ as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-ux:1.2.0")
+    implementation("com.microblink:capture-ux:1.3.0")
 }
 ```
 
@@ -347,7 +347,7 @@ Add _capture-core_ library as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-core:1.2.0")
+    implementation("com.microblink:capture-core:1.3.0")
 }
 ```
 
