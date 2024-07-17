@@ -22,6 +22,8 @@ In the results, you can get a cropped, perspective-corrected image of the docume
 * [Customizing the look and UX](#customizing-the-look)
 * [Changing default strings and localization](#changing-strings-and-localization)
     * [Defining your own string resources for UI elements](#using-own-string-resources)
+* [Using Capture filter](#capture-filter)
+    * [Using provided `BlinkIdCaptureFilter`](#blinkid-capture-filter)
 * [Completely custom UX with Direct API (advanced)](#direct-api)
     * [The `AnalyzerRunner`](#analyzer-runner)
 * [Troubleshooting](#troubleshoot)
@@ -122,7 +124,7 @@ dependencies {
     // method within MyActivity from previous step
     public fun startScanning() {
         // Start scanning
-        resultLauncher.launch()
+        captureLauncher.launch(CaptureSettings())
     }
     ```
 
@@ -323,6 +325,70 @@ val captureSettings = CaptureSettings(
     )
 )
 
+```
+
+# <a name="capture-filter"></a> Using Capture filter
+
+If you need additional checks on Capture result images, you can use [_CaptureFilter_](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.analysis/-capture-filter/index.html). This feature is optional.
+
+Capture filter filters capture results after each successful side capture (accepts or drops captured side). If the captured image is filtered out, the capture process is restarted for the current side and the same side is captured again in the same camera session.
+
+You can set your implementation of the `CaptureFilter` on the `CaptureSettings` like this:
+
+```kotlin
+val captureSettings = CaptureSettings(
+    filterSettings = FilterSettings (
+        // your implementation of the CaptureFilter interface
+        YourCaptureFilterImplementation()
+    )
+)
+
+```
+
+We are providing one specific implementation of the `CaptureFilter` which uses the BlinkID SDK and accepts document images that are extractable by the BlinkID SDK. Usage of the `BlinkIdCaptureFilter` is described in the following section.
+
+## <a name="blinkid-capture-filter"></a> Using provided `BlinkIdCaptureFilter`
+
+[BlinkIdCaptureFilter](https://blinkid.github.io/capture-android/capture-filter-blinkid/com.microblink.capture.filter.blinkid/-blink-id-capture-filter/index.html)  implementation uses BlinkID SDK for filtering of capture results. For each successful side capture, this filter runs BlinkID extraction on the captured side image and side capture results are accepted only if the image is extractable by the BlinkID SDK.
+
+To use the `BlinkIdCaptureFilter`, you first need to add additional dependency in module level build.gradle(.kts):
+
+
+```kotlin
+dependencies {
+    // this will also add transitive dependency to the BlinkID SDK
+    implementation("com.microblink:capture-filter-blinkid:1.0.0")
+}
+```
+
+Because `BlinkIdCaptureFiler` internally uses BlinkID SDK, you will also need to set the valid license key for the BlinkID SDK. We recommend that you extend [Android Application class](https://developer.android.com/reference/android/app/Application.html) and set the license in [onCreate callback](https://developer.android.com/reference/android/app/Application.html#onCreate()), it can be done in the same place as for the Capture SDK license key:
+
+
+```kotlin
+   public class MyApplication : Application() {
+       override fun onCreate() {
+           // setting license key for the Capture SDK like before
+           CaptureSDK.setLicenseFile("path/to/license/file/within/assets/dir", this)
+           // additionally set the license key for the BlinkID SDK
+           com.microblink.blinkid.MicroblinkSDK.setLicenseFile("path/to/blinkid/license/file/within/assets/dir", this);
+       }
+   }
+```
+
+
+To activate `BlinkIdCaptureFilter` filter, set it on the `CaptureSettings` like this:
+
+```kotlin
+val captureSettings = CaptureSettings(
+    filterSettings = FilterSettings (
+        // use provided BlinkID filter implementation
+        BlinkIdCaptureFilter(
+            // optionally you can set extraction result listener for
+            // obtaining the extraction results from the filter
+            extractionResultListener = YourExtractionResultListener()
+        )
+    )
+)
 ```
 
 # <a name="direct-api"></a> Completely custom UX with Direct API (advanced)
