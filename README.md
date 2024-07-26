@@ -27,6 +27,7 @@ In the results, you can get a cropped, perspective-corrected image of the docume
 * [Completely custom UX with Direct API (advanced)](#direct-api)
     * [The `AnalyzerRunner`](#analyzer-runner)
 * [Troubleshooting](#troubleshoot)
+    * [Resolving conflict on `libc++_shared.so`](#dynamicCppRuntime)
 * [Additional info](#additional-info)
     * [Capture SDK size](#sdk-size)
     * [API documentation](#api-documentation)
@@ -67,7 +68,7 @@ Add _Capture_ as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-ux:1.3.0")
+    implementation("com.microblink:capture-ux:1.4.0")
 }
 ```
 
@@ -329,7 +330,9 @@ val captureSettings = CaptureSettings(
 
 # <a name="capture-filter"></a> Using Capture filter
 
-If you need additional checks on Capture result images, you can use [_CaptureFilter_](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.analysis/-capture-filter/index.html). This feature is optional.
+If you need additional checks on Capture result images, you can use [CaptureFilter](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.analysis/-capture-filter/index.html). This feature is optional.
+
+Capture filter can be used with an external validation tool, such as `BlinkID`, to confirm that the image is of sufficient quality before ending the scanning process. During this, the scanning session is not stopping or restarting, therefore not causing friction on the end-user side.
 
 Capture filter filters capture results after each successful side capture (accepts or drops captured side). If the captured image is filtered out, the capture process is restarted for the current side and the same side is captured again in the same camera session.
 
@@ -413,7 +416,7 @@ Add _capture-core_ library as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-core:1.3.0")
+    implementation("com.microblink:capture-core:1.4.0")
 }
 ```
 
@@ -480,6 +483,36 @@ AnalyzerRunner.settings = AnalyzerSettings(
 
 ### Integration difficulties
 In case of problems with SDK integration, first make sure that you have followed [integration instructions](#sdk-integration) and [device requirements](#device-requirements). If you're still having problems, please contact us at [help.microblink.com](http://help.microblink.com).
+
+### <a name="dynamicCppRuntime"></a> Resolving conflict on `libc++_shared.so`
+
+_Capture_ contains native code that depends on the C++ runtime. This runtime is provided by the `libc++_shared.so`, which needs to be available in your app that is using _Capture_. However, the same file is also used by various other libraries that contain native components. If you happen to integrate both such library together with _Capture_ in your app, your build will fail with an error similar to this one:
+
+```
+* What went wrong:
+2 files found with path 'lib/arm64-v8a/libc++_shared.so' from inputs:
+ - /Users/igrce/.gradle/caches/transforms-4/960385a07004d962827b3e095ca2f9ae/transformed/capture-core-xxx/jni/arm64-v8a/libc++_shared.so
+ - /Users/igrce/.gradle/caches/transforms-4/0639c19a4f322d7b8c731d9105a5cf64/transformed/blinkid-xxx/jni/arm64-v8a/libc++_shared.so
+```
+
+The error states that multiple different dependencies provide the same file `lib/arm64/libc++_shared.so` (in this case, Capture and BlinkID).
+
+You can resolve this issue by making sure that the dependency that uses _newer version of `libc++_shared.so`_ is listed first in your dependency list, and then, simply add the following to your `build.gradle`:
+
+```
+android {
+    packaging {
+        jniLibs {
+            pickFirsts.add("lib/armeabi-v7a/libc++_shared.so")
+            pickFirsts.add("lib/arm64-v8a/libc++_shared.so")
+        }
+    }
+}
+```
+
+**IMPORTANT NOTE**
+
+The code above will always select the first `libc++_shared.so` from your dependency list, so make sure that the dependency that uses the *latest version of `libc++_shared.so`* is listed first. This is because `libc++_shared.so` is backward-compatible, but not forward-compatible. This means that, e.g. `libBlinkID.so` built against `libc++_shared.so` from NDK r24 will work without problems when you package it together with `libc++_shared.so` from NDK r26, but will crash when you package it together with `libc++_shared.so` from NDK r21. This is true for all your native dependencies.
 
 ### Other problems
 If you are having problems like undesired behaviour on specific device(s), crashes inside _Capture_ SDK or anything unmentioned, please contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide following information:
