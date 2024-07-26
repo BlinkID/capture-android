@@ -1,5 +1,29 @@
 # Release notes
 
+## v1.4.0
+
+### Improvements
+
+- Introduced **CaptureFilter**:
+    - If you need additional checks on Capture result images, you can use [CaptureFilter](https://blinkid.github.io/capture-android/capture-ux/com.microblink.capture.analysis/-capture-filter/index.html). This feature is optional.
+    - Capture filter filters capture results after each successful side capture (accepts or drops captured side). If the captured image is filtered out, the capture process is restarted for the current side and the same side is captured again in the same camera session.
+    - We are providing one specific implementation of the `CaptureFilter` in `capture-filter-blinkid` library which uses the BlinkID SDK and accepts document images that are extractable by the BlinkID SDK.
+- Updated introduction dialog with new image and "Turn your phone to landscape mode" message
+- Introduced `AnalyzerRunner.resetSide` function used to retake the current document side.
+- Upgraded CameraX dependency to the latest stable version v1.3.4.
+
+
+### Other changes
+
+- Native code is now built using NDK r27
+
+### Bugfixes
+
+- Fix for "Rotate card or turn phone to landscape" animation being displayed too often and even when it shouldn't be:
+    - improved `DocumentFramingStatus.CameraOrientationUnsuitable` (if you are using  the Direct API)
+    - fix for case when document met all requirements but it was too close to the camera
+    - fix for case when passport is scanned in landscape
+
 ## v1.3.0
 
 ### Improvements
