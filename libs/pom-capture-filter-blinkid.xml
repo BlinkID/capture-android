@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.microblink</groupId>
+    <artifactId>capture-filter-blinkid</artifactId>
+    <version>1.0.0</version>
+    <packaging>aar</packaging>
+    <name>BlinkID filter for Capture SDK</name>
+    <description>Capture filter implementation using the BlinkID SDK.</description>
+    <url>https://microblink.com/</url>
+    <scm>
+        <url>https://github.com/BlinkID/capture-android</url>
+        <connection>scm:git:https://github.com/BlinkID/capture-android.git</connection>
+        <developerConnection>scm:git:https://github.com/BlinkID/capture-android.git</developerConnection>
+    </scm>
+    <licenses>
+        <license>
+            <name>MicroBlink Terms of Use</name>
+            <url>https://microblink.com/terms-of-use/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>Microblink</id>
+            <name>Microblink Ltd.</name>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>androidx.core</groupId>
+            <artifactId>core-ktx</artifactId>
+            <version>1.13.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>androidx.appcompat</groupId>
+            <artifactId>appcompat</artifactId>
+            <version>1.7.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microblink</groupId>
+            <artifactId>blinkid</artifactId>
+            <version>6.8.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>1.8.10</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microblink</groupId>
+            <artifactId>capture-ux</artifactId>
+            <version>1.4.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <createChecksum>true</createChecksum>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
