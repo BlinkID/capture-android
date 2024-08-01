@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>BlinkIdCaptureFilter</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>Capture</span>            </a>    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":capture-filter-blinkid:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="capture-filter-blinkid::com.microblink.capture.filter.blinkid/BlinkIdCaptureFilter///PointingToDeclaration//1092387946">
+  <div class="breadcrumbs"><a href="../../index.html">capture-filter-blinkid</a><span class="delimiter">/</span><a href="../index.html">com.microblink.capture.filter.blinkid</a><span class="delimiter">/</span><span class="current">BlinkIdCaptureFilter</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Blink</span><wbr><span>Id</span><wbr><span>Capture</span><wbr><span><span>Filter</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">BlinkIdCaptureFilter</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">extractionResultListener<span class="token operator">: </span><a href="-extraction-result-listener/index.html">BlinkIdCaptureFilter.ExtractionResultListener</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <a href="../../../capture-core/com.microblink.capture.analysis/-capture-filter/index.html">CaptureFilter</a></div><p class="paragraph">Capture filter implementation that uses BlinkID SDK for filtering of capture results. For each successful side capture, this filter runs BlinkID extraction on the captured side image and side capture results are accepted only if the side image is extractable by the BlinkID recognizer.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="319434022%2FConstructors%2F1092387946" anchor-label="BlinkIdCaptureFilter" id="319434022%2FConstructors%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-blink-id-capture-filter.html"><span>Blink</span><wbr><span>Id</span><wbr><span>Capture</span><wbr><span><span>Filter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="319434022%2FConstructors%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parcel<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Parcel.html">Parcel</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">extractionResultListener<span class="token operator">: </span><a href="-extraction-result-listener/index.html">BlinkIdCaptureFilter.ExtractionResultListener</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1246397617%2FClasslikes%2F1092387946" anchor-label="CREATOR" id="-1246397617%2FClasslikes%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-r-e-a-t-o-r/index.html"><span><span>CREATOR</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1246397617%2FClasslikes%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-c-r-e-a-t-o-r/index.html">CREATOR</a> : <a href="https://developer.android.com/reference/kotlin/android/os/Parcelable.Creator.html">Parcelable.Creator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">BlinkIdCaptureFilter</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="212247279%2FClasslikes%2F1092387946" anchor-label="ExtractionResultListener" id="212247279%2FClasslikes%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-extraction-result-listener/index.html"><span>Extraction</span><wbr><span>Result</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="212247279%2FClasslikes%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-extraction-result-listener/index.html">ExtractionResultListener</a> : <a href="https://developer.android.com/reference/kotlin/android/os/Parcelable.html">Parcelable</a></div><div class="brief "><p class="paragraph">Listener for obtaining the extraction results after successful capture (and extraction).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-143403708%2FFunctions%2F1092387946" anchor-label="cleanup" id="-143403708%2FFunctions%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cleanup.html"><span><span>cleanup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-143403708%2FFunctions%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="cleanup.html"><span class="token function">cleanup</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1548554509%2FFunctions%2F1092387946" anchor-label="describeContents" id="1548554509%2FFunctions%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="describe-contents.html"><span>describe</span><wbr><span><span>Contents</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1548554509%2FFunctions%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="describe-contents.html"><span class="token function">describeContents</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1202535962%2FFunctions%2F1092387946" anchor-label="onDocumentCaptured" id="1202535962%2FFunctions%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-document-captured.html"><span>on</span><wbr><span>Document</span><wbr><span><span>Captured</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1202535962%2FFunctions%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-document-captured.html"><span class="token function">onDocumentCaptured</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1548197360%2FFunctions%2F1092387946" anchor-label="shouldAcceptFrame" id="1548197360%2FFunctions%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="should-accept-frame.html"><span>should</span><wbr><span>Accept</span><wbr><span><span>Frame</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1548197360%2FFunctions%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="should-accept-frame.html"><span class="token function">shouldAcceptFrame</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">image<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Bitmap.html">Bitmap</a><span class="token punctuation">, </span></span><span class="parameter ">side<span class="token operator">: </span><a href="../../../capture-core/com.microblink.capture.analysis/-capture-filter/-capture-side/index.html">CaptureFilter.CaptureSide</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../capture-core/com.microblink.capture.analysis/-capture-filter-result/index.html">CaptureFilterResult</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-875241100%2FFunctions%2F1092387946" anchor-label="writeToParcel" id="-875241100%2FFunctions%2F1092387946" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":capture-filter-blinkid:dokkaHtmlPartial/release" data-filterable-set=":capture-filter-blinkid:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="write-to-parcel.html"><span>write</span><wbr><span>To</span><wbr><span><span>Parcel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-875241100%2FFunctions%2F1092387946"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":capture-filter-blinkid:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="write-to-parcel.html"><span class="token function">writeToParcel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">parcel<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Parcel.html">Parcel</a><span class="token punctuation">, </span></span><span class="parameter ">flags<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

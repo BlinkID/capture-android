@@ -1,15 +1,24 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult///PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/index.html
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult/FrameAnalysisResult/#[Error type: Unresolved type for CaptureState]#kotlin.Boolean#[Error type: Unresolved type for FrameAnalysisStatus]#com.microblink.capture.analysis.FrameAnalysisDebugStatus?/PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/-frame-analysis-result.html
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult/captureState/#/PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/capture-state.html
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult/debugStatus/#/PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/debug-status.html
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult/frameAnalysisStatus/#/PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/frame-analysis-status.html
+$dokka.location:com.microblink.capture.analysis/FrameAnalysisResult/frameCaptured/#/PointingToDeclaration/capture-core/com.microblink.capture.analysis/[android-jvm]-frame-analysis-result/frame-captured.html
 module:capture-core
 com.microblink.capture
 com.microblink.capture.analysis
 com.microblink.capture.directapi
+com.microblink.capture.geometry
 com.microblink.capture.image
 com.microblink.capture.licence.exception
 com.microblink.capture.result
 com.microblink.capture.settings
+module:capture-filter-blinkid
+com.microblink.capture.filter.blinkid
 module:capture-ux
+com.microblink.capture.analysis
 com.microblink.capture.overlay.debug
 com.microblink.capture.overlay.resources
 com.microblink.capture.result

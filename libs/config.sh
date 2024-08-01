@@ -1,5 +1,5 @@
 #!/bin/bash
-SDK_NAMES=(capture-core capture-ux)
+SDK_NAMES=(capture-core capture-ux capture-filter-blinkid)
 SDK_VERSIONS=()
 
 for i in "${!SDK_NAMES[@]}"; do

@@ -23,6 +23,7 @@ import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.core.os.BundleCompat
 import androidx.core.widget.TextViewCompat
+import com.microblink.capture.analysis.CaptureState
 import com.microblink.capture.analysis.FrameAnalysisResult
 import com.microblink.capture.analysis.FrameAnalysisStatus
 import com.microblink.capture.directapi.AnalyzerRunner
@@ -181,12 +182,12 @@ class CustomCameraActivity : AppCompatActivity() {
 
     private fun handleFrameAnalysisResult(frameAnalysisResult: FrameAnalysisResult) {
         when (frameAnalysisResult.captureState) {
-            FrameAnalysisResult.CaptureState.FirstSideCaptureInProgress,
-            FrameAnalysisResult.CaptureState.SecondSideCaptureInProgress -> run {
+            CaptureState.FirstSideCaptureInProgress,
+            CaptureState.SecondSideCaptureInProgress -> run {
                 val processingFailure = getProcessingFailureTypeFromAnalysisResult(frameAnalysisResult.frameAnalysisStatus)
                 nextUiMessage = when (processingFailure) {
                     ProcessingFailureType.DOCUMENT_FRAMING_NO_DOCUMENT -> {
-                        if (frameAnalysisResult.captureState == FrameAnalysisResult.CaptureState.FirstSideCaptureInProgress) {
+                        if (frameAnalysisResult.captureState == CaptureState.FirstSideCaptureInProgress) {
                             UiMessage.SENSING_FRONT_SIDE
                         } else {
                             UiMessage.SENSING_BACK_SIDE
@@ -207,10 +208,10 @@ class CustomCameraActivity : AppCompatActivity() {
                     null -> UiMessage.PROCESSING
                 }
             }
-            FrameAnalysisResult.CaptureState.SideCaptured -> {
+            CaptureState.SideCaptured -> {
                 nextUiMessage = UiMessage.FLIP_DOCUMENT_SIDE
             }
-            FrameAnalysisResult.CaptureState.DocumentCaptured -> {
+            CaptureState.DocumentCaptured -> {
                 // pause scanning early here to avoid further analysis while finishing activity
                 captureStreamAnalyzer.pauseAnalysis()
 
