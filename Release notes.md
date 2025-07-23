@@ -1,5 +1,19 @@
 # Release notes
 
+## v1.4.1
+
+### Improvements
+
+- The SDK now supports 16KB page sizes
+
+### Other changes
+
+- Native code is now built using NDK r28c
+
+### Bugfixes
+
+- Resolved an issue where UI elements could be obscured by system bars when using edge-to-edge mode. The SDK now properly applies insets to prevent overlap, ensuring content remains fully visible.
+
 ## v1.4.0
 
 ### Improvements
