@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>capture-filter-blinkid</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>aar</packaging>
     <name>BlinkID filter for Capture SDK</name>
     <description>Capture filter implementation using the BlinkID SDK.</description>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.microblink</groupId>
             <artifactId>capture-ux</artifactId>
-            <version>1.4.1</version>
+            <version>1.4.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
