@@ -8,7 +8,7 @@ buildscript {
     val navigation_compose_version by extra("2.9.2")
     val camerax_version by extra("1.3.4")
     // Capture SDK version
-    val capture_version by extra("1.4.1")
+    val capture_version by extra("1.4.2")
 
 }
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
