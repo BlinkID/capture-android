@@ -68,7 +68,7 @@ Add _Capture_ as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-ux:1.4.1")
+    implementation("com.microblink:capture-ux:1.4.2")
 }
 ```
 
@@ -360,7 +360,7 @@ To use the `BlinkIdCaptureFilter`, you first need to add additional dependency i
 ```kotlin
 dependencies {
     // this will also add transitive dependency to the BlinkID SDK
-    implementation("com.microblink:capture-filter-blinkid:1.0.0")
+    implementation("com.microblink:capture-filter-blinkid:1.0.2")
 }
 ```
 
@@ -408,7 +408,7 @@ Add _capture-core_ library as a dependency in module level build.gradle(.kts):
 
 ```
 dependencies {
-    implementation("com.microblink:capture-core:1.4.1")
+    implementation("com.microblink:capture-core:1.4.2")
 }
 ```
 
