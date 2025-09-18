@@ -1,5 +1,11 @@
 # Release notes
 
+## v1.4.2
+
+### Bugfixes
+
+- Fixed an issue that could cause a rare crash when returning a result from `CaptureActivity`.
+
 ## v1.4.1
 
 ### Improvements
