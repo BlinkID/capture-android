@@ -1,5 +1,11 @@
 # Release notes
 
+## v1.4.3
+
+### Bugfixes
+
+- Fixed a rare edge-case crash that could occur during camera initialization.
+
 ## v1.4.2
 
 ### Bugfixes
