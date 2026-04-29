@@ -1,5 +1,17 @@
 # Release notes
 
+## v1.4.4
+
+### Improvements
+
+- Added support for custom native library loading. Clients can now provide their own `NativeLibraryLoader` implementation via `CaptureSDK.setNativeLibraryLoader(loader)` to fully control how the SDK's native library is loaded (for example, to work around the rare native library loading crash observed on some Android 13 and 14 devices). If no custom loader is provided, the SDK continues to use `System.loadLibrary` exactly as before.
+
+### Minor API changes
+
+- Added `com.microblink.capture.native.NativeLibraryLoader` functional interface.
+- Added `CaptureSDK.setNativeLibraryLoader(loader)` entry point. It must be called before any other `CaptureSDK` call (e.g. `setLicenseKey`, `setLicenseFile`, `setLicenseBuffer`); otherwise the native library will already be loaded with the default loader and the provided implementation will be ignored.
+
+
 ## v1.4.3
 
 ### Bugfixes
