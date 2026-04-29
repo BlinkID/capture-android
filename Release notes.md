@@ -4,7 +4,7 @@
 
 ### Improvements
 
-- Added support for custom native library loading. Clients can now provide their own `NativeLibraryLoader` implementation via `CaptureSDK.setNativeLibraryLoader(loader)` to fully control how the SDK's native library is loaded (for example, to work around the rare native library loading crash observed on some Android 13 and 14 devices). If no custom loader is provided, the SDK continues to use `System.loadLibrary` exactly as before.
+- Added support for custom native library loading. You can now provide your own `NativeLibraryLoader` implementation via `CaptureSDK.setNativeLibraryLoader(loader)` to fully control how the SDK's native library is loaded. If no custom loader is provided, the SDK continues to use `System.loadLibrary` exactly as before.
 
 ### Minor API changes
 
